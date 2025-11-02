@@ -5,34 +5,21 @@ spring:
 
   # Configuración de base de datos
   datasource:
-    # Configuración para H2 (momentaneo)
-    url: jdbc:h2:mem:testdb
-    driver-class-name: org.h2.Driver
-    username: sa
-    password: password
-
-    # Para MySQL si lo usamos
-    # url: jdbc:mysql://localhost:3306/gestion_eventos
-    # driver-class-name: com.mysql.cj.jdbc.Driver
-    # username: root
-    # password: contra
+    url: jdbc:postgresql://localhost:5433/gestion_eventos
+    username: postgres
+    password: "postgre"  # Cambiar por su contraseña de PostgreSQL
+    driver-class-name: org.postgresql.Driver
 
   # Configuración JPA/Hibernate
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update  # Crea/actualiza las tablas automáticamente
     show-sql: true
     properties:
       hibernate:
         format_sql: true
-        dialect: org.hibernate.dialect.H2Dialect
-        # Para MySQL: org.hibernate.dialect.MySQLDialect
-
-  # Configuración H2 Console
-  h2:
-    console:
-      enabled: true
-      path: /h2-console
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
 
 # Configuración del servidor
 server:
@@ -43,9 +30,9 @@ server:
 # Configuraciones personalizadas de la aplicación
 eventos:
   app:
-    version: 1.0.0
-    descripcion: API REST para gestión de eventos y asistentes
-    contacto: grupo6@ues.edu.sv #ejemplo
+    version: 2.0.0
+    descripcion: API REST para gestión de eventos y asistentes - Segunda Entrega
+    contacto: grupo6@ues.edu.sv # EJEMPLO
 
 # Configuración de logging
 logging:
@@ -55,6 +42,3 @@ logging:
     org.hibernate.SQL: DEBUG
   pattern:
     console: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
-
-# Configuración de validaciones
-spring.jpa.properties.hibernate.validator.fail_fast: false
