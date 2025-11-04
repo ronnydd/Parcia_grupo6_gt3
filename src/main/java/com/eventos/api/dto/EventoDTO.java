@@ -1,69 +1,45 @@
-package com.eventos.api.entity;
+package com.eventos.api.dto;
 
 import com.eventos.api.entity.enums.EstadoEvento;
-import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "eventos")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Evento {
+public class EventoDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_evento")
     private Long idEvento;
 
     @NotBlank(message = "El nombre del evento es obligatorio")
     @Size(max = 100, message = "El nombre no puede exceder 100 caracteres")
-    @Column(nullable = false, length = 100)
     private String nombre;
 
     @Size(max = 500, message = "La descripción no puede exceder 500 caracteres")
-    @Column(length = 500)
     private String descripcion;
 
     @NotNull(message = "La fecha del evento es obligatoria")
-    @Column(name = "fecha_evento", nullable = false)
     private LocalDateTime fechaEvento;
 
     @NotBlank(message = "La ubicación es obligatoria")
     @Size(max = 200, message = "La ubicación no puede exceder 200 caracteres")
-    @Column(nullable = false, length = 200)
     private String ubicacion;
 
     @NotNull(message = "La capacidad máxima es obligatoria")
     @Min(value = 1, message = "La capacidad debe ser mayor a 0")
-    @Column(name = "capacidad_maxima", nullable = false)
     private Integer capacidadMaxima;
 
     @NotNull(message = "El precio es obligatorio")
     @DecimalMin(value = "0.0", message = "El precio no puede ser negativo")
-    @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal precio;
 
     @NotNull(message = "El estado del evento es obligatorio")
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false, length = 20)
     private EstadoEvento estado;
 
-    @CreationTimestamp
-    @Column(name = "fecha_creacion", updatable = false)
     private LocalDateTime fechaCreacion;
-
-    @UpdateTimestamp
-    @Column(name = "fecha_actualizacion")
     private LocalDateTime fechaActualizacion;
-
-    @Column(name = "id_usuario_organizador")
-    private Long idUsuarioOrganizador;
 }
