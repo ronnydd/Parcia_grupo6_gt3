@@ -81,14 +81,14 @@ Este proyecto consiste en el desarrollo de una **API REST con Spring Boot** para
 - [x] README.md inicial
 
 ### Segunda Entrega (3-9 Noviembre) - Evaluación Individual
-- [ ] Implementación de al menos un GET, POST, PUT o DELETE
-- [ ] Desarrollo de una o dos entidades conectadas
-- [ ] Integración de Lombok para código limpio
-- [ ] Implementación de DTOs (Data Transfer Objects)
-- [ ] Arquitectura en capas (Controller, Service, Repository)
-- [ ] Configuración de Spring Data JPA con base de datos
-- [ ] Validaciones de datos
-- [ ] Pruebas con Postman de las funcionalidades implementadas
+- [x] Implementación de al menos un GET, POST, PUT o DELETE
+- [x] Desarrollo de una o dos entidades conectadas
+- [x] Integración de Lombok para código limpio
+- [x] Implementación de DTOs (Data Transfer Objects)
+- [x] Arquitectura en capas (Controller, Service, Repository)
+- [x] Configuración de Spring Data JPA con base de datos
+- [x] Validaciones de datos
+- [x] Pruebas con Postman de las funcionalidades implementadas
 
 ### Tercera Entrega (24-30 Noviembre) - Evaluación Individual
 - [ ] Funcionalidad completa del sistema
