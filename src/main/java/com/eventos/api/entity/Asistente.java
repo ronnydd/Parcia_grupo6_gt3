@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "asistentes",
@@ -61,4 +62,17 @@ public class Asistente {
     @UpdateTimestamp
     @Column(name = "fecha_actualizacion")
     private LocalDateTime fechaActualizacion;
+
+    // Relación con Usuario
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_usuario", unique = true)
+    private Usuario usuario;
+
+    // Relación con RegistroEvento
+    @OneToMany(mappedBy = "asistente", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<RegistroEvento> inscripciones;
+
+    // Relación con Calificacion
+    @OneToMany(mappedBy = "asistente", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Calificacion> calificaciones;
 }

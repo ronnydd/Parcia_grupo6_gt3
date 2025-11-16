@@ -37,4 +37,10 @@ public class AsistenteDTO {
     private Boolean activo;
     private LocalDateTime fechaRegistro;
     private LocalDateTime fechaActualizacion;
+
+    // Relación con Usuario (opcional)
+    private Long idUsuario;
+
+    // Información adicional para respuestas
+    private String usernameUsuario;
 }

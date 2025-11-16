@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -25,9 +26,8 @@ public class EventoDTO {
     @NotNull(message = "La fecha del evento es obligatoria")
     private LocalDateTime fechaEvento;
 
-    @NotBlank(message = "La ubicación es obligatoria")
-    @Size(max = 200, message = "La ubicación no puede exceder 200 caracteres")
-    private String ubicacion;
+    @Min(value = 1, message = "La duración debe ser mayor a 0")
+    private Integer duracionMinutos;
 
     @NotNull(message = "La capacidad máxima es obligatoria")
     @Min(value = 1, message = "La capacidad debe ser mayor a 0")
@@ -42,4 +42,14 @@ public class EventoDTO {
 
     private LocalDateTime fechaCreacion;
     private LocalDateTime fechaActualizacion;
+
+    // IDs de relaciones
+    private Long idUsuarioOrganizador;
+    private Long idCategoria;
+    private Long idUbicacion;
+
+    // Información adicional para respuestas
+    private String nombreOrganizador;
+    private String nombreCategoria;
+    private String nombreUbicacion;
 }

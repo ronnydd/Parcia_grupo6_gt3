@@ -10,6 +10,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "eventos")
@@ -36,10 +37,9 @@ public class Evento {
     @Column(name = "fecha_evento", nullable = false)
     private LocalDateTime fechaEvento;
 
-    @NotBlank(message = "La ubicación es obligatoria")
-    @Size(max = 200, message = "La ubicación no puede exceder 200 caracteres")
-    @Column(nullable = false, length = 200)
-    private String ubicacion;
+    @Min(value = 1, message = "La duración debe ser mayor a 0")
+    @Column(name = "duracion_minutos")
+    private Integer duracionMinutos;
 
     @NotNull(message = "La capacidad máxima es obligatoria")
     @Min(value = 1, message = "La capacidad debe ser mayor a 0")
@@ -64,6 +64,22 @@ public class Evento {
     @Column(name = "fecha_actualizacion")
     private LocalDateTime fechaActualizacion;
 
-    @Column(name = "id_usuario_organizador")
-    private Long idUsuarioOrganizador;
+    // Relaciones
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_usuario_organizador")
+    private Usuario organizador;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_categoria")
+    private Categoria categoria;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_ubicacion")
+    private Ubicacion ubicacion;
+
+    @OneToMany(mappedBy = "evento", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<RegistroEvento> registros;
+
+    @OneToMany(mappedBy = "evento", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Calificacion> calificaciones;
 }
