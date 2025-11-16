@@ -6,6 +6,29 @@
 -- Conectar a la base de datos
 \c gestion_eventos;
 
+-- Tabla: categorias (tipos de eventos)
+CREATE TABLE IF NOT EXISTS categorias (
+  id_categoria SERIAL PRIMARY KEY,
+  nombre VARCHAR(50) NOT NULL UNIQUE,
+    descripcion TEXT,
+    activo BOOLEAN DEFAULT TRUE,
+    fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    );
+
+-- Tabla: ubicaciones (sedes/lugares físicos)
+CREATE TABLE IF NOT EXISTS ubicaciones (
+    id_ubicacion SERIAL PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    direccion VARCHAR(200) NOT NULL,
+    ciudad VARCHAR(50) NOT NULL,
+    departamento VARCHAR(50) NOT NULL,
+    capacidad_maxima INTEGER NOT NULL CHECK (capacidad_maxima > 0),
+    tipo_ubicacion VARCHAR(50),
+    descripcion TEXT,
+    activo BOOLEAN DEFAULT TRUE,
+    fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    );
+
 -- Tabla: usuarios
 CREATE TABLE IF NOT EXISTS usuarios (
     id_usuario SERIAL PRIMARY KEY,
@@ -22,6 +45,7 @@ CREATE TABLE IF NOT EXISTS usuarios (
 -- Tabla: asistentes
 CREATE TABLE IF NOT EXISTS asistentes (
     id_asistente SERIAL PRIMARY KEY,
+    id_usuario INTEGER UNIQUE,
     nombre VARCHAR(50) NOT NULL,
     apellido VARCHAR(50) NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
@@ -29,7 +53,9 @@ CREATE TABLE IF NOT EXISTS asistentes (
     documento_identidad VARCHAR(20) NOT NULL UNIQUE,
     activo BOOLEAN DEFAULT TRUE,
     fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    fecha_actualizacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    fecha_actualizacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_asistente_usuario FOREIGN KEY (id_usuario)
+    REFERENCES usuarios(id_usuario) ON DELETE SET NULL
     );
 
 -- Tabla: eventos
@@ -38,23 +64,27 @@ CREATE TABLE IF NOT EXISTS eventos (
     nombre VARCHAR(100) NOT NULL,
     descripcion TEXT,
     fecha_evento TIMESTAMP NOT NULL,
-    ubicacion VARCHAR(200) NOT NULL,
+    duracion_minutos INTEGER,
     capacidad_maxima INTEGER NOT NULL CHECK (capacidad_maxima > 0),
     precio DECIMAL(10, 2) NOT NULL CHECK (precio >= 0),
     estado VARCHAR(20) NOT NULL CHECK (estado IN ('ACTIVO', 'CANCELADO', 'FINALIZADO')),
     fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     fecha_actualizacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     id_usuario_organizador INTEGER,
-    FOREIGN KEY (id_usuario_organizador) REFERENCES usuarios(id_usuario) ON DELETE SET NULL
+    id_categoria INTEGER,
+    id_ubicacion INTEGER,
+    FOREIGN KEY (id_usuario_organizador) REFERENCES usuarios(id_usuario) ON DELETE SET NULL,
+    FOREIGN KEY (id_categoria) REFERENCES categorias(id_categoria) ON DELETE SET NULL,
+    FOREIGN KEY (id_ubicacion) REFERENCES ubicaciones(id_ubicacion) ON DELETE SET NULL
     );
 
 -- Tabla: registro_evento (relación entre asistentes y eventos)
 CREATE TABLE IF NOT EXISTS registro_evento (
-   id_registro SERIAL PRIMARY KEY,
-   id_evento INTEGER NOT NULL,
-   id_asistente INTEGER NOT NULL,
-   fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-   estado VARCHAR(20) NOT NULL CHECK (estado IN ('CONFIRMADO', 'CANCELADO', 'ASISTIO', 'NO_ASISTIO')),
+    id_registro SERIAL PRIMARY KEY,
+    id_evento INTEGER NOT NULL,
+    id_asistente INTEGER NOT NULL,
+    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    estado VARCHAR(20) NOT NULL CHECK (estado IN ('CONFIRMADO', 'CANCELADO', 'ASISTIO', 'NO_ASISTIO')),
     precio_pagado DECIMAL(10, 2) NOT NULL CHECK (precio_pagado >= 0),
     codigo_qr VARCHAR(10) UNIQUE,
     fecha_checkin TIMESTAMP,
@@ -64,14 +94,48 @@ CREATE TABLE IF NOT EXISTS registro_evento (
     UNIQUE (id_evento, id_asistente)
     );
 
+-- Tabla: pagos (transacciones de pago)
+CREATE TABLE IF NOT EXISTS pagos (
+    id_pago SERIAL PRIMARY KEY,
+    id_registro INTEGER NOT NULL UNIQUE,
+    monto DECIMAL(10, 2) NOT NULL CHECK (monto >= 0),
+    metodo_pago VARCHAR(50) NOT NULL CHECK (metodo_pago IN ('EFECTIVO', 'TARJETA', 'TRANSFERENCIA', 'OTRO')),
+    estado_pago VARCHAR(20) NOT NULL CHECK (estado_pago IN ('PENDIENTE', 'COMPLETADO', 'RECHAZADO', 'REEMBOLSADO')),
+    numero_transaccion VARCHAR(100) UNIQUE,
+    fecha_pago TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    comprobante_url VARCHAR(255),
+    FOREIGN KEY (id_registro) REFERENCES registro_evento(id_registro) ON DELETE CASCADE
+    );
+
+-- Tabla: calificaciones (reviews de eventos por asistentes)
+CREATE TABLE IF NOT EXISTS calificaciones (
+    id_calificacion SERIAL PRIMARY KEY,
+    id_evento INTEGER NOT NULL,
+    id_asistente INTEGER NOT NULL,
+    puntuacion INTEGER NOT NULL CHECK (puntuacion >= 1 AND puntuacion <= 5),
+    comentario TEXT,
+    fecha_calificacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_evento) REFERENCES eventos(id_evento) ON DELETE CASCADE,
+    FOREIGN KEY (id_asistente) REFERENCES asistentes(id_asistente) ON DELETE CASCADE,
+    UNIQUE (id_evento, id_asistente)
+    );
+
 -- Índices para mejorar el rendimiento
 CREATE INDEX idx_eventos_fecha ON eventos(fecha_evento);
 CREATE INDEX idx_eventos_estado ON eventos(estado);
+CREATE INDEX idx_eventos_categoria ON eventos(id_categoria);
+CREATE INDEX idx_eventos_ubicacion ON eventos(id_ubicacion);
 CREATE INDEX idx_registro_evento_evento ON registro_evento(id_evento);
 CREATE INDEX idx_registro_evento_asistente ON registro_evento(id_asistente);
+CREATE INDEX idx_pagos_estado ON pagos(estado_pago);
+CREATE INDEX idx_calificaciones_evento ON calificaciones(id_evento);
 
 -- Comentarios en las tablas
-COMMENT ON TABLE usuarios IS 'Usuarios del sistema con roles';
+COMMENT ON TABLE usuarios IS 'Usuarios del sistema con roles (ADMIN, ORGANIZADOR, ASISTENTE)';
 COMMENT ON TABLE asistentes IS 'Asistentes registrados en el sistema';
 COMMENT ON TABLE eventos IS 'Eventos disponibles para registro';
+COMMENT ON TABLE categorias IS 'Categorías/tipos de eventos';
+COMMENT ON TABLE ubicaciones IS 'Sedes físicas donde se realizan eventos';
 COMMENT ON TABLE registro_evento IS 'Registros de asistentes a eventos';
+COMMENT ON TABLE pagos IS 'Transacciones de pago de registros';
+COMMENT ON TABLE calificaciones IS 'Calificaciones y reseñas de eventos por asistentes';

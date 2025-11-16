@@ -10,5 +10,4 @@ import java.util.List;
 public interface EventoRepository extends JpaRepository<Evento, Long> {
 
     List<Evento> findByEstado(EstadoEvento estado);
-    List<Evento> findByUbicacionContainingIgnoreCase(String ubicacion);
 }
