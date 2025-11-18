@@ -12,9 +12,16 @@ import java.util.List;
 @RestController
 @RequestMapping("/asistentes")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "*")
 public class AsistenteController {
 
     private final AsistenteService asistenteService;
+
+    @PostMapping
+    public ResponseEntity<AsistenteDTO> crearAsistente(@Valid @RequestBody AsistenteDTO asistenteDTO) {
+        AsistenteDTO nuevoAsistente = asistenteService.crearAsistente(asistenteDTO);
+        return new ResponseEntity<>(nuevoAsistente, HttpStatus.CREATED);
+    }
 
     @GetMapping
     public ResponseEntity<List<AsistenteDTO>> obtenerTodosLosAsistentes() {
@@ -28,10 +35,16 @@ public class AsistenteController {
         return ResponseEntity.ok(asistente);
     }
 
-    @PostMapping
-    public ResponseEntity<AsistenteDTO> crearAsistente(@Valid @RequestBody AsistenteDTO asistenteDTO) {
-        AsistenteDTO asistenteCreado = asistenteService.crearAsistente(asistenteDTO);
-        return ResponseEntity.status(HttpStatus.CREATED).body(asistenteCreado);
+    @GetMapping("/email/{email}")
+    public ResponseEntity<AsistenteDTO> obtenerAsistentePorEmail(@PathVariable String email) {
+        AsistenteDTO asistente = asistenteService.obtenerAsistentePorEmail(email);
+        return ResponseEntity.ok(asistente);
+    }
+
+    @GetMapping("/documento/{documento}")
+    public ResponseEntity<AsistenteDTO> obtenerAsistentePorDocumento(@PathVariable String documento) {
+        AsistenteDTO asistente = asistenteService.obtenerAsistentePorDocumento(documento);
+        return ResponseEntity.ok(asistente);
     }
 
     @PutMapping("/{id}")
@@ -39,6 +52,14 @@ public class AsistenteController {
             @PathVariable Long id,
             @Valid @RequestBody AsistenteDTO asistenteDTO) {
         AsistenteDTO asistenteActualizado = asistenteService.actualizarAsistente(id, asistenteDTO);
+        return ResponseEntity.ok(asistenteActualizado);
+    }
+
+    @PatchMapping("/{id}/estado")
+    public ResponseEntity<AsistenteDTO> activarDesactivarAsistente(
+            @PathVariable Long id,
+            @RequestParam Boolean activo) {
+        AsistenteDTO asistenteActualizado = asistenteService.activarDesactivarAsistente(id, activo);
         return ResponseEntity.ok(asistenteActualizado);
     }
 

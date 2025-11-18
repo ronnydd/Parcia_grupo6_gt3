@@ -2,7 +2,9 @@ package com.eventos.api.service;
 
 import com.eventos.api.dto.AsistenteDTO;
 import com.eventos.api.entity.Asistente;
+import com.eventos.api.entity.Usuario;
 import com.eventos.api.repository.AsistenteRepository;
+import com.eventos.api.repository.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,6 +17,7 @@ import java.util.stream.Collectors;
 public class AsistenteService {
 
     private final AsistenteRepository asistenteRepository;
+    private final UsuarioRepository usuarioRepository;
 
     public AsistenteDTO crearAsistente(AsistenteDTO asistenteDTO) {
         // Validar email único
@@ -29,6 +32,14 @@ public class AsistenteService {
 
         Asistente asistente = convertirDTOaEntidad(asistenteDTO);
         asistente.setActivo(true);
+
+        // Asignar usuario si existe el ID
+        if (asistenteDTO.getIdUsuario() != null) {
+            Usuario usuario = usuarioRepository.findById(asistenteDTO.getIdUsuario())
+                    .orElseThrow(() -> new RuntimeException("Usuario no encontrado con ID: " + asistenteDTO.getIdUsuario()));
+            asistente.setUsuario(usuario);
+        }
+
         Asistente asistenteGuardado = asistenteRepository.save(asistente);
         return convertirEntidadADTO(asistenteGuardado);
     }
@@ -44,6 +55,20 @@ public class AsistenteService {
     public AsistenteDTO obtenerAsistentePorId(Long id) {
         Asistente asistente = asistenteRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Asistente no encontrado con ID: " + id));
+        return convertirEntidadADTO(asistente);
+    }
+
+    @Transactional(readOnly = true)
+    public AsistenteDTO obtenerAsistentePorEmail(String email) {
+        Asistente asistente = asistenteRepository.findByEmail(email)
+                .orElseThrow(() -> new RuntimeException("Asistente no encontrado con email: " + email));
+        return convertirEntidadADTO(asistente);
+    }
+
+    @Transactional(readOnly = true)
+    public AsistenteDTO obtenerAsistentePorDocumento(String documento) {
+        Asistente asistente = asistenteRepository.findByDocumentoIdentidad(documento)
+                .orElseThrow(() -> new RuntimeException("Asistente no encontrado con documento: " + documento));
         return convertirEntidadADTO(asistente);
     }
 
@@ -70,7 +95,24 @@ public class AsistenteService {
         asistenteExistente.setTelefono(asistenteDTO.getTelefono());
         asistenteExistente.setDocumentoIdentidad(asistenteDTO.getDocumentoIdentidad());
 
+        // Actualizar usuario si cambió
+        if (asistenteDTO.getIdUsuario() != null &&
+                (asistenteExistente.getUsuario() == null ||
+                        !asistenteExistente.getUsuario().getIdUsuario().equals(asistenteDTO.getIdUsuario()))) {
+            Usuario usuario = usuarioRepository.findById(asistenteDTO.getIdUsuario())
+                    .orElseThrow(() -> new RuntimeException("Usuario no encontrado con ID: " + asistenteDTO.getIdUsuario()));
+            asistenteExistente.setUsuario(usuario);
+        }
+
         Asistente asistenteActualizado = asistenteRepository.save(asistenteExistente);
+        return convertirEntidadADTO(asistenteActualizado);
+    }
+
+    public AsistenteDTO activarDesactivarAsistente(Long id, Boolean activo) {
+        Asistente asistente = asistenteRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Asistente no encontrado con ID: " + id));
+        asistente.setActivo(activo);
+        Asistente asistenteActualizado = asistenteRepository.save(asistente);
         return convertirEntidadADTO(asistenteActualizado);
     }
 
@@ -92,6 +134,13 @@ public class AsistenteService {
         dto.setActivo(asistente.getActivo());
         dto.setFechaRegistro(asistente.getFechaRegistro());
         dto.setFechaActualizacion(asistente.getFechaActualizacion());
+
+        // Mapear relación con Usuario
+        if (asistente.getUsuario() != null) {
+            dto.setIdUsuario(asistente.getUsuario().getIdUsuario());
+            dto.setUsernameUsuario(asistente.getUsuario().getUsername());
+        }
+
         return dto;
     }
 
