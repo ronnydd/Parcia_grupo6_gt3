@@ -22,13 +22,9 @@ public interface EventoRepository extends JpaRepository<Evento, Long> {
 
     List<Evento> findByFechaEventoAfter(LocalDateTime fecha);
 
-    List<Evento> findByFechaEventoBefore(LocalDateTime fecha);
-
     List<Evento> findByEstadoAndFechaEventoAfter(EstadoEvento estado, LocalDateTime fecha);
 
     List<Evento> findByNombreContainingIgnoreCase(String nombre);
-
-    List<Evento> findByCategoriaIdCategoriaAndEstado(Long idCategoria, EstadoEvento estado);
 
     // Buscar eventos próximos (en un rango de fechas)
     @Query("SELECT e FROM Evento e WHERE e.fechaEvento BETWEEN :fechaInicio AND :fechaFin AND e.estado = :estado")
