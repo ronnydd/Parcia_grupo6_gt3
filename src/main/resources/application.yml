@@ -7,7 +7,7 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/gestion_eventos
     username: postgres
-    password: postgres  # Cambiar por su contraseña de PostgreSQL
+    password: 'postgre2003..'  # Cambiar por su contraseña de PostgreSQL
     driver-class-name: org.postgresql.Driver
 
   # Configuración JPA/Hibernate

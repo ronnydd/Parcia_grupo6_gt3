@@ -1,0 +1,2952 @@
+{
+	"info": {
+		"_postman_id": "1181bbd3-9d7f-49ca-b6d4-4c2018831bc5",
+		"name": "API Gestión de Eventos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "49764353",
+		"_collection_link": "https://mc24029-2507578.postman.co/workspace/Rodrigo-Alexis-Mercado-Calidoni~73073e55-377c-4afb-8593-9279c867f393/collection/49764353-1181bbd3-9d7f-49ca-b6d4-4c2018831bc5?action=share&source=collection_link&creator=49764353"
+	},
+	"item": [
+		{
+			"name": "Eventos",
+			"item": [
+				{
+					"name": "Eventos - Obtener todos los eventos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/eventos",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"eventos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eventos - Obtener evento por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/eventos/1",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"eventos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eventos -  Obtener eventos por estado",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/eventos/estado/ACTIVO",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"eventos",
+								"estado",
+								"ACTIVO"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eventos - Obtener por categoría",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/eventos/categoria/2",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"eventos",
+								"categoria",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eventos - Obtener por ubicación",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/eventos/ubicacion/1",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"eventos",
+								"ubicacion",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eventos - Obtener por organizador",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/eventos/organizador/3",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"eventos",
+								"organizador",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eventos - Obtener eventos próximos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/eventos/proximos",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"eventos",
+								"proximos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eventos - Buscar por nombre",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/eventos/buscar?nombre=Spring",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"eventos",
+								"buscar"
+							],
+							"query": [
+								{
+									"key": "nombre",
+									"value": "Spring"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eventos - Obtener en rango de fechas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/eventos/rango?fechaInicio=2025-12-01T00:00:00&fechaFin=2025-12-31T23:59:59&estado=ACTIVO",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"eventos",
+								"rango"
+							],
+							"query": [
+								{
+									"key": "fechaInicio",
+									"value": "2025-12-01T00:00:00"
+								},
+								{
+									"key": "fechaFin",
+									"value": "2025-12-31T23:59:59"
+								},
+								{
+									"key": "estado",
+									"value": "ACTIVO"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eventos - Contar inscritos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/eventos/1/inscritos",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"eventos",
+								"1",
+								"inscritos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eventos - Verificar disponibilidad",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/eventos/1/disponibilidad",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"eventos",
+								"1",
+								"disponibilidad"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eventos - Crear evento (Válido)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Conferencia de Spring Boot 2025\",\r\n  \"descripcion\": \"Conferencia sobre las últimas novedades de Spring Boot\",\r\n  \"fechaEvento\": \"2025-12-15T09:00:00\",\r\n  \"duracionMinutos\": 480,\r\n  \"capacidadMaxima\": 200,\r\n  \"precio\": 25.00,\r\n  \"estado\": \"ACTIVO\",\r\n  \"idUsuarioOrganizador\": 1,\r\n  \"idCategoria\": 1,\r\n  \"idUbicacion\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/eventos",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"eventos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eventos - Crear evento (inválido)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"evento\",\r\n  \"descripcion\": \"Este evento tiene fecha pasada\",\r\n  \"fechaEvento\": \"2020-01-01T10:00:00\",\r\n  \"duracionMinutos\": 120,\r\n  \"capacidadMaxima\": 50,\r\n  \"precio\": 10.00,\r\n  \"estado\": \"ACTIVO\",\r\n  \"idUsuarioOrganizador\": 1,\r\n  \"idCategoria\": 1,\r\n  \"idUbicacion\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/eventos",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"eventos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eventos - Actualizar evento",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Conferencia de Spring Boot 2025 - Actualizada\",\r\n  \"descripcion\": \"Conferencia actualizada con más contenido\",\r\n  \"fechaEvento\": \"2025-12-15T09:00:00\",\r\n  \"duracionMinutos\": 600,\r\n  \"capacidadMaxima\": 250,\r\n  \"precio\": 30.00,\r\n  \"estado\": \"ACTIVO\",\r\n  \"idUsuarioOrganizador\": 1,\r\n  \"idCategoria\": 1,\r\n  \"idUbicacion\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/eventos/8",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"eventos",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eventos - Cambiar estado",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/eventos/7/estado?estado=ACTIVO",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"eventos",
+								"7",
+								"estado"
+							],
+							"query": [
+								{
+									"key": "estado",
+									"value": "ACTIVO"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eventos - Eliminar evento",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/eventos/8",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"eventos",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eventos - No existe",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/eventos/777",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"eventos",
+								"777"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Asistentes",
+			"item": [
+				{
+					"name": "Asistentes - Obtener todos los asistentes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/asistentes",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"asistentes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Asistentes - Obtener asistente por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/asistentes/1",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"asistentes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Asistentes - Obtener por email",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/asistentes/email/carlos.rodriguez@email.com",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"asistentes",
+								"email",
+								"carlos.rodriguez@email.com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Asistentes - Obtener por documento",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/asistentes/documento/12345678-9",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"asistentes",
+								"documento",
+								"12345678-9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Asistentes - Crear asistente (Válido)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Rodrigo\",\r\n  \"apellido\": \"Ramírez\",\r\n  \"email\": \"rodrigo.ramirez@ejemplo.com\",\r\n  \"telefono\": \"7890-1111\",\r\n  \"documentoIdentidad\": \"00112233-4\",\r\n  \"activo\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/asistentes",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"asistentes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Asistentes - Crear asistente (Inválido)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"\",\r\n  \"apellido\": \"Usuario\",\r\n  \"email\": \"email_invalido\",\r\n  \"telefono\": \"7890-0000\",\r\n  \"documentoIdentidad\": \"00000000-0\",\r\n  \"activo\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/asistentes",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"asistentes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Asistentes - Crear asistente (Email duplicado)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Otro\",\r\n  \"apellido\": \"Usuario\",\r\n  \"email\": \"carlos.rodriguez@email.com\",\r\n  \"telefono\": \"7890-0000\",\r\n  \"documentoIdentidad\": \"99999999-9\",\r\n  \"activo\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/asistentes",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"asistentes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Asistentes - Actualizar asistente",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Carlos Antonio\",\r\n  \"apellido\": \"Rodríguez García\",\r\n  \"email\": \"carlos.rodriguez@email.com\",\r\n  \"telefono\": \"7890-9999\",\r\n  \"documentoIdentidad\": \"12345678-9\",\r\n  \"activo\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/asistentes/1",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"asistentes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Asistentes - Activar/Desactivar",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/asistentes/9/estado?activo=false",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"asistentes",
+								"9",
+								"estado"
+							],
+							"query": [
+								{
+									"key": "activo",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Asistentes - Eliminar asistente",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/asistentes/9",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"asistentes",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Asistentes - No existe",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/asistentes/777",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"asistentes",
+								"777"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Calificacion",
+			"item": [
+				{
+					"name": "Calificaciones - Obtener todas las calificaciones",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/calificaciones",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"calificaciones"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Calificaciones - Obtener calificación por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/calificaciones/1",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"calificaciones",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Calificaciones - Obtener por evento",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/calificaciones/evento/1",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"calificaciones",
+								"evento",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Calificaciones - Obtener por asistente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/calificaciones/asistente/1",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"calificaciones",
+								"asistente",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Calificaciones - Obtener por puntuación",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/calificaciones/puntuacion/3",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"calificaciones",
+								"puntuacion",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Calificaciones - Obtener mayores o iguales a puntuación",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/calificaciones/minimo/5",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"calificaciones",
+								"minimo",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Calificaciones - Obtener de asistente en evento específico",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/calificaciones/evento/1/asistente/1",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"calificaciones",
+								"evento",
+								"1",
+								"asistente",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Calificaciones - Calcular promedio de evento",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/calificaciones/evento/1/promedio",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"calificaciones",
+								"evento",
+								"1",
+								"promedio"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Calificaciones - Contar calificaciones de evento",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/calificaciones/evento/1/count",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"calificaciones",
+								"evento",
+								"1",
+								"count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Calificaciones - Obtener evento con comentario",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/calificaciones/evento/1/con-comentario",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"calificaciones",
+								"evento",
+								"1",
+								"con-comentario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Calificaciones - Crear calificación",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idEvento\": 2,\r\n  \"idAsistente\": 3,\r\n  \"puntuacion\": 5,\r\n  \"comentario\": \"Excelente evento, muy bien organizado y contenido de alta calidad\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/calificaciones",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"calificaciones"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Calificaciones - Crear calificación (Sin asistir al evento)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idEvento\": 1,\r\n  \"idAsistente\": 4,\r\n  \"puntuacion\": 5,\r\n  \"comentario\": \"Intentando calificar sin haber asistido\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/calificaciones",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"calificaciones"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Calificaciones - Actualizar calificación",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idEvento\": 2,\r\n  \"idAsistente\": 3,\r\n  \"puntuacion\": 4,\r\n  \"comentario\": \"Actualización: Muy buen evento pero el audio podría mejorar\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/calificaciones/8",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"calificaciones",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Calificaciones - Eliminar calificación",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/calificaciones/8",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"calificaciones",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Calificaciones - No existe",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/calificaciones/456",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"calificaciones",
+								"456"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categoria",
+			"item": [
+				{
+					"name": "Categorias - Obtener todas las categorías",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/categorias",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"categorias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Categorias - Obtener categoría por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/categorias/1",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"categorias",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Categorias - Obtener categoría por nombre",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/categorias/nombre/Cultural",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"categorias",
+								"nombre",
+								"Cultural"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Categorias - Obtener categorías activas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/categorias/activas",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"categorias",
+								"activas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Categorias - Buscar por nombre",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/categorias/buscar?nombre=Ta",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"categorias",
+								"buscar"
+							],
+							"query": [
+								{
+									"key": "nombre",
+									"value": "Ta"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Categorias - Contar eventos por categoría",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/categorias/2/eventos/count",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"categorias",
+								"2",
+								"eventos",
+								"count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Categorias - Crear categoría (Válido)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Tecnología\",\r\n  \"descripcion\": \"Eventos relacionados con tecnología e innovación\",\r\n  \"activo\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/categorias",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"categorias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Categorias - Crear categoría (Inválido)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"descripcion\": \"Sin nombre\",\r\n  \"activo\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/categorias",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"categorias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Categorias - Crear categoría (Duplicado)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Tecnología\",\r\n  \"descripcion\": \"Nombre duplicado\",\r\n  \"activo\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/categorias",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"categorias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Categorias - Actualizar categoría",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Tecnología Avanzada\",\r\n  \"descripcion\": \"Eventos de tecnología de última generación\",\r\n  \"activo\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/categorias/7",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"categorias",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Categorias - Activar/Desactivar",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/categorias/7/estado?activo=false",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"categorias",
+								"7",
+								"estado"
+							],
+							"query": [
+								{
+									"key": "activo",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Categorias - Eliminar categoría",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/categorias/7",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"categorias",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Categorias - No existe",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/categorias/9999",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"categorias",
+								"9999"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pago",
+			"item": [
+				{
+					"name": "Pagos - Obtener todos los pagos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/pagos",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"pagos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pagos - Obtener pago por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/pagos/1",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"pagos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pagos - Obtener por registro",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/pagos/registro/1",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"pagos",
+								"registro",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pagos - Obtener por número de transacción",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/pagos/transaccion/TRX-2024-001",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"pagos",
+								"transaccion",
+								"TRX-2024-001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pagos - Obtener por estado",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/pagos/estado/COMPLETADO",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"pagos",
+								"estado",
+								"COMPLETADO"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pagos - Obtener por método",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/pagos/metodo/TARJETA",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"pagos",
+								"metodo",
+								"TARJETA"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pagos - Filtrar por estado y método",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/pagos/filtrar?estado=COMPLETADO&metodo=TARJETA",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"pagos",
+								"filtrar"
+							],
+							"query": [
+								{
+									"key": "estado",
+									"value": "COMPLETADO"
+								},
+								{
+									"key": "metodo",
+									"value": "TARJETA"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pagos - Obtener por rango de fechas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/pagos/rango-fechas?fechaInicio=2025-01-01T00:00:00&fechaFin=2025-12-31T23:59:59",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"pagos",
+								"rango-fechas"
+							],
+							"query": [
+								{
+									"key": "fechaInicio",
+									"value": "2025-01-01T00:00:00"
+								},
+								{
+									"key": "fechaFin",
+									"value": "2025-12-31T23:59:59"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pagos - Obtener pagos mayores a monto",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/pagos/monto-mayor/20.00",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"pagos",
+								"monto-mayor",
+								"20.00"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pagos - Calcular total de pagos completados",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/pagos/total-completados",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"pagos",
+								"total-completados"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pagos - Contar pagos por estado",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/pagos/count/estado/COMPLETADO",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"pagos",
+								"count",
+								"estado",
+								"COMPLETADO"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pagos - Crear pago (Válido)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idRegistro\": 18,\r\n  \"monto\": 25.00,\r\n  \"metodoPago\": \"TARJETA\",\r\n  \"estadoPago\": \"PENDIENTE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/pagos",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"pagos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pagos - Crear pago (Duplicado)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idRegistro\": 1,\r\n  \"monto\": 25.00,\r\n  \"metodoPago\": \"EFECTIVO\",\r\n  \"estadoPago\": \"COMPLETADO\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/pagos",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"pagos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pagos - Actualizar pago",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idRegistro\": 18,\r\n  \"monto\": 30.00,\r\n  \"metodoPago\": \"TARJETA\",\r\n  \"estadoPago\": \"COMPLETADO\",\r\n  \"comprobanteUrl\": \"https://ejemplo.com/comprobantes/001.pdf\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/pagos/17",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"pagos",
+								"17"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pagos - Cambiar estado",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/pagos/16/estado?estado=COMPLETADO",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"pagos",
+								"16",
+								"estado"
+							],
+							"query": [
+								{
+									"key": "estado",
+									"value": "COMPLETADO"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pagos - Confirmar pago",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"comprobanteUrl\": \"https://ejemplo.com/comprobantes/002.pdf\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/pagos/1/confirmar",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"pagos",
+								"1",
+								"confirmar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pagos - Rechazar pago",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/pagos/2/rechazar",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"pagos",
+								"2",
+								"rechazar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pagos - Reembolsar pago",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/pagos/1/reembolsar",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"pagos",
+								"1",
+								"reembolsar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pagos - Eliminar pago",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/pagos/17",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"pagos",
+								"17"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pagos - No existe",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/pagos/123",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"pagos",
+								"123"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ubicacion",
+			"item": [
+				{
+					"name": "Ubicaciones - Obtener todas las ubicaciones",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/ubicaciones",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"ubicaciones"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ubicaciones - Obtener ubicación por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/ubicaciones/1",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"ubicaciones",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ubicaciones - Obtener por ciudad",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/ubicaciones/ciudad/Santa Ana",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"ubicaciones",
+								"ciudad",
+								"Santa Ana"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ubicaciones - Obtener por departamento",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/ubicaciones/departamento/San Salvador",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"ubicaciones",
+								"departamento",
+								"San Salvador"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ubicaciones - Obtener ubicaciones activas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/ubicaciones/activas",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"ubicaciones",
+								"activas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ubicaciones - Obtener por tipo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/ubicaciones/tipo/Auditorio",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"ubicaciones",
+								"tipo",
+								"Auditorio"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ubicaciones - Buscar por nombre",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/ubicaciones/buscar?nombre=Centro",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"ubicaciones",
+								"buscar"
+							],
+							"query": [
+								{
+									"key": "nombre",
+									"value": "Centro"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ubicaciones - Filtrar por ciudad y estado",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/ubicaciones/filtrar?ciudad=Santa Ana&activo=true",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"ubicaciones",
+								"filtrar"
+							],
+							"query": [
+								{
+									"key": "ciudad",
+									"value": "Santa Ana"
+								},
+								{
+									"key": "activo",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ubicaciones - Por capacidad mínima",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/ubicaciones/capacidad-minima/100",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"ubicaciones",
+								"capacidad-minima",
+								"100"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ubicaciones - Crear ubicación (Válido)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Auditorio Central UNICAES\",\r\n  \"direccion\": \"Km 12.5 Carretera a Santa Ana\",\r\n  \"ciudad\": \"Santa Ana\",\r\n  \"departamento\": \"Santa Ana\",\r\n  \"capacidadMaxima\": 500,\r\n  \"tipoUbicacion\": \"Auditorio\",\r\n  \"descripcion\": \"Auditorio principal con equipamiento completo\",\r\n  \"activo\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/ubicaciones",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"ubicaciones"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ubicaciones - Crear ubicación (Inválido)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Sala Inválida\",\r\n  \"direccion\": \"Direccion test\",\r\n  \"ciudad\": \"Santa Ana\",\r\n  \"departamento\": \"Santa Ana\",\r\n  \"capacidadMaxima\": 0,\r\n  \"activo\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/ubicaciones",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"ubicaciones"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ubicaciones - Actualizar ubicación",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Auditorio Central UNICAES - Renovado\",\r\n  \"direccion\": \"Km 12.5 Carretera a Santa Ana\",\r\n  \"ciudad\": \"Santa Ana\",\r\n  \"departamento\": \"Santa Ana\",\r\n  \"capacidadMaxima\": 600,\r\n  \"tipoUbicacion\": \"Auditorio\",\r\n  \"descripcion\": \"Auditorio remodelado con nueva tecnología\",\r\n  \"activo\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/ubicaciones/6",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"ubicaciones",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ubicaciones - Activar/Desactivar",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/ubicaciones/6/estado?activo=false",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"ubicaciones",
+								"6",
+								"estado"
+							],
+							"query": [
+								{
+									"key": "activo",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ubicaciones - Eliminar ubicación",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/ubicaciones/6",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"ubicaciones",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ubicaciones - No existe",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/ubicaciones/9999",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"ubicaciones",
+								"9999"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuario",
+			"item": [
+				{
+					"name": "Usuarios - Obtener todos los usuarios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/usuarios",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Usuarios - Obtener usuario por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/usuarios/1",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"usuarios",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Usuarios - Obtener por username",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/usuarios/username/admin",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"usuarios",
+								"username",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Usuarios - Obtener por email",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/usuarios/email/admin@eventos.com",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"usuarios",
+								"email",
+								"admin@eventos.com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Usuarios - Obtener por rol",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/usuarios/rol/ADMIN",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"usuarios",
+								"rol",
+								"ADMIN"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Usuarios - Obtener usuarios activos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/usuarios/activos",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"usuarios",
+								"activos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Usuarios - Filtrar por rol y estado",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/usuarios/filtrar?rol=ORGANIZADOR&activo=true",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"usuarios",
+								"filtrar"
+							],
+							"query": [
+								{
+									"key": "rol",
+									"value": "ORGANIZADOR"
+								},
+								{
+									"key": "activo",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Usuarios - Crear usuario (Válido)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"admin123\",\r\n  \"password\": \"password123\",\r\n  \"email\": \"admin123@eventos.com\",\r\n  \"rol\": \"ADMIN\",\r\n  \"nombreCompleto\": \"Administrador del Sistema\",\r\n  \"activo\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/usuarios",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Usuarios - Crear usuario (Inválido)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"usuariotest\",\r\n  \"password\": \"password123\",\r\n  \"rol\": \"ASISTENTE\",\r\n  \"activo\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/usuarios",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Usuarios - Crear usuario (Username duplicado)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"admin123\",\r\n  \"password\": \"password123\",\r\n  \"email\": \"otro@email.com\",\r\n  \"rol\": \"ADMIN\",\r\n  \"activo\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/usuarios",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Usuarios - Actualizar usuario",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"admin123\",\r\n  \"password\": \"password123\",\r\n  \"email\": \"admin_actualizado@eventos.com\",\r\n  \"rol\": \"ADMIN\",\r\n  \"nombreCompleto\": \"Administrador Principal del Sistema\",\r\n  \"activo\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/usuarios/7",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"usuarios",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Usuarios - Activar/Desactivar",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/usuarios/7/estado?activo=false",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"usuarios",
+								"7",
+								"estado"
+							],
+							"query": [
+								{
+									"key": "activo",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Usuarios - Actualizar último login",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/usuarios/1/ultimo-login",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"usuarios",
+								"1",
+								"ultimo-login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Usuarios - Cambiar contraseña",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"passwordActual\": \"password123\",\r\n  \"passwordNuevo\": \"newpassword456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/usuarios/7/cambiar-password",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"usuarios",
+								"7",
+								"cambiar-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Usuarios - Eliminar usuario",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/usuarios/7",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"usuarios",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Usuarios - No existe",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/usuarios/9999",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"usuarios",
+								"9999"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "RegistroEvento",
+			"item": [
+				{
+					"name": "Registros - Obtener todos los registros",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/registros",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"registros"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registros - Obtener registro por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/registros/16",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"registros",
+								"16"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registros - Obtener por evento",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/registros/evento/1",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"registros",
+								"evento",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registros - Obtener por asistente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/registros/asistente/1",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"registros",
+								"asistente",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registros - Obtener por estado",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/registros/estado/CONFIRMADO",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"registros",
+								"estado",
+								"CONFIRMADO"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registros - Obtener por evento y estado",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/registros/evento/1/estado/CONFIRMADO",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"registros",
+								"evento",
+								"1",
+								"estado",
+								"CONFIRMADO"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registros - Obtener por asistente y estado",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/registros/asistente/1/estado/CONFIRMADO",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"registros",
+								"asistente",
+								"1",
+								"estado",
+								"CONFIRMADO"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registros - Obtener por código QR",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/registros/codigo-qr/QR001",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"registros",
+								"codigo-qr",
+								"QR001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registros - Contar inscritos por evento",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/registros/evento/1/count",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"registros",
+								"evento",
+								"1",
+								"count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registros - Inscribir asistente (Válido)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idEvento\": 2,\r\n  \"idAsistente\": 3,\r\n  \"estado\": \"CONFIRMADO\",\r\n  \"precioPagado\": 25.00\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/registros",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"registros"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registros - Inscribir (Duplicado)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idEvento\": 1,\r\n  \"idAsistente\": 1,\r\n  \"estado\": \"CONFIRMADO\",\r\n  \"precioPagado\": 25.00\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/registros",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"registros"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registros - Inscribir (Sin capacidad)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idEvento\": 1,\r\n  \"idAsistente\": 4,\r\n  \"estado\": \"CONFIRMADO\",\r\n  \"precioPagado\": 50.00\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/registros",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"registros"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registros - Realizar check-in",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/registros/18/checkin",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"registros",
+								"18",
+								"checkin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registros - Check-in por código QR",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/registros/checkin-qr/QR002",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"registros",
+								"checkin-qr",
+								"QR002"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registros - Cancelar inscripción",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/registros/3/cancelar",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"registros",
+								"3",
+								"cancelar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registros - Marcar no asistió",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/registros/4/no-asistio",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"registros",
+								"4",
+								"no-asistio"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registros - Eliminar registro",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/registros/17",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"registros",
+								"17"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registros - No existe",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/registros/777",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"registros",
+								"777"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Presentación",
+			"item": [
+				{
+					"name": "Categoría - Nueva categoría",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Nueva categoría\",\r\n  \"descripcion\": \"Eventos relacionados con la presentación Final\",\r\n  \"activo\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/categorias",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"categorias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ubicación - Nueva ubicación",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Auditorio Central UES\",\r\n  \"direccion\": \"Km 12.5 Carretera a Santa Ana\",\r\n  \"ciudad\": \"Santa Ana\",\r\n  \"departamento\": \"Santa Ana\",\r\n  \"capacidadMaxima\": 500,\r\n  \"tipoUbicacion\": \"Auditorio\",\r\n  \"descripcion\": \"Auditorio principal con equipamiento completo\",\r\n  \"activo\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/ubicaciones",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"ubicaciones"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Evento - Nuevo evento",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Presentación Proyecto Final\",\r\n  \"descripcion\": \"Api para gestión de eventos en Spring Boot\",\r\n  \"fechaEvento\": \"2025-12-15T09:00:00\",\r\n  \"duracionMinutos\": 100,\r\n  \"capacidadMaxima\": 50,\r\n  \"precio\": 10.00,\r\n  \"estado\": \"ACTIVO\",\r\n  \"idUsuarioOrganizador\": 2,\r\n  \"idCategoria\": 10,\r\n  \"idUbicacion\": 9 \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/eventos",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"eventos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registro - Inscribir asistente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idEvento\": 11,\r\n  \"idAsistente\": 3,\r\n  \"estado\": \"CONFIRMADO\",\r\n  \"precioPagado\": 10.00\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/registros",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"registros"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registro - Realizar check-in",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}{{context-path}}/registros/checkin-qr/R1D2AHY12Y",
+							"host": [
+								"{{baseURL}}{{context-path}}"
+							],
+							"path": [
+								"registros",
+								"checkin-qr",
+								"R1D2AHY12Y"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
