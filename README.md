@@ -91,13 +91,13 @@ Este proyecto consiste en el desarrollo de una **API REST con Spring Boot** para
 - [x] Pruebas con Postman de las funcionalidades implementadas
 
 ### Tercera Entrega (24-30 Noviembre) - Evaluación Individual
-- [ ] Funcionalidad completa del sistema
-- [ ] Manejo correcto de todas las relaciones entre entidades
-- [ ] Implementación de manejo de errores
-- [ ] Calidad de código y buenas prácticas
-- [ ] Documentación final actualizada (README.md)
-- [ ] Pruebas unitarias con JUnit
-- [ ] Pruebas completas en Postman
+- [x] Funcionalidad completa del sistema
+- [x] Manejo correcto de todas las relaciones entre entidades
+- [x] Implementación de manejo de errores
+- [x] Calidad de código y buenas prácticas
+- [x] Documentación final actualizada (README.md)
+- [x] Pruebas unitarias con JUnit
+- [x] Pruebas completas en Postman
 
 ## Configuración del Desarrollo
 
